@@ -38,11 +38,11 @@ public class Vaga {
         this.rua = rua;
     }
 
-    public boolean isObliquo() {
+    public boolean isObliqua() {
         return obliqua;
     }
 
-    public void setObliquo(boolean obliquo) {
+    public void setObliqua(boolean obliquo) {
         this.obliqua = obliquo;
     }
     
