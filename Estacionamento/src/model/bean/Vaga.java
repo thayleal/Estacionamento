@@ -14,6 +14,7 @@ public class Vaga {
    private String rua;
    private boolean obliqua;
 
+
     public int getIdVaga() {
         return idVaga;
     }
@@ -42,8 +43,8 @@ public class Vaga {
         return obliqua;
     }
 
-    public void setObliqua(boolean obliquo) {
-        this.obliqua = obliquo;
+    public void setObliqua(boolean obliqua) {
+        this.obliqua = obliqua;
     }
     
     
