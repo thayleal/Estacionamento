@@ -28,6 +28,20 @@ public class JFatualizarVaga extends javax.swing.JFrame {
             jRBParalela.setSelected(true);
         }
     }
+    private void jBtSalvarActionPerformed(java.awt.event.ActionEvent evt) {
+        Vaga v = new Vaga();
+        VagaDAO dao = new VagaDAO();
+        v.setIdVaga(Integer.parseInt(lblIdVaga.getText()));
+        v.setNumero(Integer.parseInt(jTFNumero.getText()));
+        v.setRua(jTFRua.getText());
+        if(jRBObliqua.isSelected()){
+            v.setObliqua(true);
+        }else if (jRBParalela.isSelected()){
+            v.setObliqua(false);
+            
+        }
+        dao.update(v);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -217,7 +231,8 @@ public class JFatualizarVaga extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFatualizarVaga().setVisible(true);
+                JFatualizarVaga frame = new JFatualizarVaga(idVaga);
+                frame.setVisible(true);
             }
         });
     }

@@ -5,6 +5,7 @@
 package view;
 
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.dao.VagaDAO;
 import model.bean.Vaga;
@@ -14,6 +15,16 @@ import model.bean.Vaga;
  */
 public class JFListarVagas extends javax.swing.JFrame {
 
+    private void JBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {
+        if(jTVaga.getSelectedRow() != -1){
+            int vagaSelecionada = (int)jTVaga.getValueAt(jTVaga.getSelectedRow(), 0);
+            JFatualizarVaga av = new JFatualizarVaga(vagaSelecionada);
+            av.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecionar uma vaga!", "Erro",JOptionPane.ERROR_MESSAGE);
+        }
+        readJTable();
+    }
     /**
      * Creates new form JFListarVagas
      */
@@ -34,9 +45,9 @@ public class JFListarVagas extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTVaga = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        JBtnCadastrar = new javax.swing.JButton();
+        jBtnAlterar = new javax.swing.JButton();
+        jBtnExcluir = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -71,14 +82,14 @@ public class JFListarVagas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTVaga);
 
-        jButton2.setText("Cadastrar Vaga");
+        JBtnCadastrar.setText("Cadastrar Vaga");
 
-        jButton3.setText("Editar Vaga");
+        jBtnAlterar.setText("Editar Vaga");
 
-        jButton4.setText("Excluir Vaga");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jBtnExcluir.setText("Excluir Vaga");
+        jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jBtnExcluirActionPerformed(evt);
             }
         });
 
@@ -94,11 +105,11 @@ public class JFListarVagas extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(JBtnCadastrar)
                                 .addGap(95, 95, 95)
-                                .addComponent(jButton3)
+                                .addComponent(jBtnAlterar)
                                 .addGap(46, 46, 46)
-                                .addComponent(jButton4)))
+                                .addComponent(jBtnExcluir)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -111,28 +122,49 @@ public class JFListarVagas extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(JBtnCadastrar)
+                    .addComponent(jBtnAlterar)
+                    .addComponent(jBtnExcluir))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jBtnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnExcluirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+         if(jTVaga.getSelectedRow() != -1){
+            int opcao = JOptionPane.showConfirmDialog(null, "Deseja Excluir a vaga selecionada?", "Exclusão", JOptionPane.YES_NO_OPTION);
+            if(opcao == 0){
+                VagaDAO dao = new VagaDAO();
+                Vaga v = new Vaga();
+                
+                v.setIdVaga((int)jTVaga.getValueAt(jTVaga.getSelectedRow(), 0));
+                dao.delete(v);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Selecione uma vaga!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        readJTable();
+    }//GEN-LAST:event_jBtnExcluirActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         readJTable();// TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
+    
+    
+    private void jBtnEditarActionPerformed(java.awt.event.ActionEvent evt){
+        
+    }
+    
     public void readJTable(){
         DefaultTableModel modelo = (DefaultTableModel) jTVaga.getModel();
         modelo.setNumRows(0);
         VagaDAO dao = new VagaDAO();
         for(Vaga v: dao.read()){
             modelo.addRow(new Object[]{
+            v.getIdVaga(),
             v.getNumero(),
             v.getRua(),
             v.isObliqua()
@@ -176,10 +208,10 @@ public class JFListarVagas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBtnCadastrar;
+    private javax.swing.JButton jBtnAlterar;
+    private javax.swing.JButton jBtnExcluir;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTVaga;
