@@ -85,6 +85,11 @@ public class JFListarVagas extends javax.swing.JFrame {
         JBtnCadastrar.setText("Cadastrar Vaga");
 
         jBtnAlterar.setText("Editar Vaga");
+        jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAlterarActionPerformed(evt);
+            }
+        });
 
         jBtnExcluir.setText("Excluir Vaga");
         jBtnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -106,9 +111,9 @@ public class JFListarVagas extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JBtnCadastrar)
-                                .addGap(95, 95, 95)
+                                .addGap(79, 79, 79)
                                 .addComponent(jBtnAlterar)
-                                .addGap(46, 46, 46)
+                                .addGap(62, 62, 62)
                                 .addComponent(jBtnExcluir)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -152,11 +157,18 @@ public class JFListarVagas extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         readJTable();// TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
+
+    private void jBtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAlterarActionPerformed
+        if(jTVaga.getSelectedRow() != -1){
+            int vagaSelecionada = (int)jTVaga.getValueAt(jTVaga.getSelectedRow(), 0);
+            JFatualizarVaga av = new JFatualizarVaga(vagaSelecionada);
+            av.setVisible(true);
+          }else{
+            JOptionPane.showMessageDialog(null, "Selecione uma vaga!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        readJTable(); 
+    }//GEN-LAST:event_jBtnAlterarActionPerformed
     
-    
-    private void jBtnEditarActionPerformed(java.awt.event.ActionEvent evt){
-        
-    }
     
     public void readJTable(){
         DefaultTableModel modelo = (DefaultTableModel) jTVaga.getModel();
