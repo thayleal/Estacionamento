@@ -203,7 +203,7 @@ public class JFatualizarVaga extends javax.swing.JFrame {
        v.setIdVaga(Integer.parseInt(lblIdVaga.getText()));
        v.setNumero(Integer.parseInt(jTFNumero.getText()));
        v.setRua(jTFRua.getText());
-       if(jRBObliqua.isSelected()){
+       if(jRBObliqua.isSelected()){ 
            v.setObliqua(true);
        }else if (jRBParalela.isSelected()){
            v.setObliqua(false);

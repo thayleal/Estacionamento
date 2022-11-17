@@ -170,7 +170,7 @@ public class JFListarVagas extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnAlterarActionPerformed
     
     
-    public void readJTable(){
+    public void readJTable(){ 
         DefaultTableModel modelo = (DefaultTableModel) jTVaga.getModel();
         modelo.setNumRows(0);
         VagaDAO dao = new VagaDAO();
