@@ -28,6 +28,7 @@ public class JFCadastrarVaga extends javax.swing.JFrame {
     private void initComponents() {
 
         BGTipoVaga = new javax.swing.ButtonGroup();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTFNumero = new javax.swing.JTextField();
@@ -152,6 +153,7 @@ public class JFCadastrarVaga extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRBObliquaActionPerformed
 
+    
     private void jRBParalelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBParalelaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRBParalelaActionPerformed
@@ -207,6 +209,7 @@ public class JFCadastrarVaga extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup BGTipoVaga;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBtnCancelar;
     private javax.swing.JButton jBtnLimpar;
     private javax.swing.JButton jBtnSalvar;

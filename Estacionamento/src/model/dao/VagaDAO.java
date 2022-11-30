@@ -96,7 +96,7 @@ public Vaga read(int idVaga){
            v.setObliqua(rs.getBoolean("obliqua"));
 }
 
-}catch (SQLException e){
+}catch (SQLException e){ 
    throw new RuntimeException("Erro ao buscar os dados", e);
 
 }finally{

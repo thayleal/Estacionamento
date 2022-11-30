@@ -17,7 +17,7 @@ public class JFatualizarVaga extends javax.swing.JFrame {
      * Creates new form JFatualizarVaga
      */
     public JFatualizarVaga(int idVaga) {
-        initComponents();
+        
         VagaDAO vdao= new VagaDAO();
         Vaga v = vdao.read(idVaga);
         lblIdVaga.setText(String.valueOf(v.getIdVaga()));

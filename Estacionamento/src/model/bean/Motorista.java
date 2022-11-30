@@ -18,7 +18,7 @@ public class Motorista {
     private String Email;
     private String Senha;
 
-    public Motorista(int idMotorista, String nomeCompleto, String genero, int rg, int cpf, int celular, String email, String senha) {
+   /* public Motorista(int idMotorista, String NomeCompleto, String Genero, int RG, int CPF, int Celular, String Email, String Senha) {
         this.idMotorista = idMotorista;
         this.NomeCompleto = NomeCompleto;
         this.Genero = Genero;
@@ -27,15 +27,16 @@ public class Motorista {
         this.Celular = Celular;
         this.Email = Email;
         this.Senha = Senha;
-    }
+    }*/
     
     public int getidMotorista() {
         return idMotorista;
     }
      
-    public void setidMotorista() {
+    public void setidMotorista(int idMotorista) {
         this.idMotorista = idMotorista;
     }
+
      
     public String getNomeCompleto() {
         return NomeCompleto;
