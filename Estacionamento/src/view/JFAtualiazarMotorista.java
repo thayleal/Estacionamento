@@ -54,7 +54,7 @@ public class JFAtualiazarMotorista extends javax.swing.JFrame {
         jTFRG = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jBtnSalvar = new javax.swing.JButton();
-        jBtnEditar = new javax.swing.JButton();
+        jBtnLimpar = new javax.swing.JButton();
         jBtnExcluir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -107,7 +107,12 @@ public class JFAtualiazarMotorista extends javax.swing.JFrame {
             }
         });
 
-        jBtnEditar.setText("Editar");
+        jBtnLimpar.setText("Limpar");
+        jBtnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnLimparActionPerformed(evt);
+            }
+        });
 
         jBtnExcluir.setText("Excluir");
 
@@ -166,7 +171,7 @@ public class JFAtualiazarMotorista extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jBtnSalvar)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBtnEditar)
+                            .addComponent(jBtnLimpar)
                             .addGap(87, 87, 87)
                             .addComponent(jBtnExcluir)))
                     .addContainerGap()))
@@ -219,7 +224,7 @@ public class JFAtualiazarMotorista extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jBtnSalvar)
-                                        .addComponent(jBtnEditar)
+                                        .addComponent(jBtnLimpar)
                                         .addComponent(jBtnExcluir)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jTFSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,6 +260,20 @@ public class JFAtualiazarMotorista extends javax.swing.JFrame {
         dao.create(m);
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnSalvarActionPerformed
+
+    private void jBtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLimparActionPerformed
+        jTFCPF.setText(""); 
+        jTFRG.setText("");
+        jTFCelular.setText("");
+        jTFNomeCompleto.setText("");
+        jTFGenero.setText("");
+        jTFGenero.setText("");
+        jTFGenero.setText("");
+        jTFEmail.setText("");
+        jTFSenha.setText("");
+        
+        
+    }//GEN-LAST:event_jBtnLimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,8 +313,8 @@ public class JFAtualiazarMotorista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnEditar;
     private javax.swing.JButton jBtnExcluir;
+    private javax.swing.JButton jBtnLimpar;
     private javax.swing.JButton jBtnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;

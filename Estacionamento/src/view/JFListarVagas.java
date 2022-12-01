@@ -52,6 +52,7 @@ public class JFListarVagas extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Listar Vagas");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -83,6 +84,11 @@ public class JFListarVagas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTVaga);
 
         JBtnCadastrar.setText("Cadastrar Vaga");
+        JBtnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBtnCadastrarActionPerformed(evt);
+            }
+        });
 
         jBtnAlterar.setText("Editar Vaga");
         jBtnAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -168,6 +174,12 @@ public class JFListarVagas extends javax.swing.JFrame {
         }
         readJTable(); 
     }//GEN-LAST:event_jBtnAlterarActionPerformed
+
+    private void JBtnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBtnCadastrarActionPerformed
+        JFCadastrarVaga cv = new JFCadastrarVaga();
+        cv.setVisible(true);
+        
+    }//GEN-LAST:event_JBtnCadastrarActionPerformed
     
     
     public void readJTable(){ 

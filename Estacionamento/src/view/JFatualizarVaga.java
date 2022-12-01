@@ -68,7 +68,8 @@ public class JFatualizarVaga extends javax.swing.JFrame {
         lblIdVaga = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Atualizar Vaga");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Atualizar Vaga");
@@ -95,6 +96,11 @@ public class JFatualizarVaga extends javax.swing.JFrame {
         });
 
         jBtnCancelar.setText("Cancelar");
+        jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnCancelarActionPerformed(evt);
+            }
+        });
 
         bGTipoVaga.add(jRBParalela);
         jRBParalela.setText("Paralela");
@@ -105,6 +111,11 @@ public class JFatualizarVaga extends javax.swing.JFrame {
         });
 
         jBtnLimpar.setText("Limpar");
+        jBtnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnLimparActionPerformed(evt);
+            }
+        });
 
         jBtnSalvar.setText("Salvar");
         jBtnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -210,6 +221,16 @@ public class JFatualizarVaga extends javax.swing.JFrame {
        }
        vdao.update(v);
     }//GEN-LAST:event_jBtnSalvarActionPerformed
+
+    private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
+      dispose();
+    }//GEN-LAST:event_jBtnCancelarActionPerformed
+
+    private void jBtnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLimparActionPerformed
+        jTFRua.setText("");
+        jTFNumero.setText("");
+        bGTipoVaga.clearSelection();
+    }//GEN-LAST:event_jBtnLimparActionPerformed
 
     /**
      * @param args the command line arguments
